@@ -14,6 +14,25 @@ export function AarogyaInteractive() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
+    // Mobile menu toggle
+    const navToggle = document.querySelector('#navToggle');
+    const mobileMenu = document.querySelector('#mobileMenu');
+    if (navToggle && mobileMenu) {
+      const closeMenu = () => {
+        navToggle.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      };
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      });
+      for (const link of mobileMenu.querySelectorAll('a')) {
+        link.addEventListener('click', closeMenu);
+      }
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
