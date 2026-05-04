@@ -1,0 +1,2313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aarogya — Healthcare, reimagined for India</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f5f6fa;
+        --bg-2: #ecedf3;
+        --bg-3: #fdfdff;
+        --paper: #ffffff;
+        --ink: #0a0e1a;
+        --ink-soft: #3d4660;
+        --ink-mute: #7d8aa3;
+        --accent: #4338ca;
+        --accent-hi: #6366f1;
+        --accent-deep: #312e81;
+        --accent-soft: #e0e7ff;
+        --accent-warm: #a5b4fc;
+        --accent-glow: rgba(67, 56, 202, 0.18);
+        --line: #d8dde9;
+        --line-soft: #e8ecf3;
+        --serif: 'Fraunces', Georgia, serif;
+        --sans: 'Geist', system-ui, sans-serif;
+        --mono: 'JetBrains Mono', ui-monospace, monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      ::selection {
+        background: var(--accent);
+        color: white;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+        opacity: 0.6;
+      }
+
+      body::after {
+        content: '';
+        position: fixed;
+        top: -30%;
+        right: -20%;
+        width: 80vw;
+        height: 80vw;
+        background:
+          radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 50%),
+          radial-gradient(ellipse at 40% 60%, rgba(165, 180, 252, 0.15) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
+        filter: blur(40px);
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px;
+        position: relative;
+        z-index: 2;
+      }
+
+      nav {
+        padding: 18px 0;
+        position: sticky;
+        top: 0;
+        background: rgba(245, 246, 250, 0.6);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        z-index: 100;
+        border-bottom: 1px solid transparent;
+        transition: all 0.4s cubic-bezier(0.2, 0.7, 0.3, 1);
+      }
+      nav.scrolled {
+        border-bottom-color: var(--line);
+        padding: 12px 0;
+        background: rgba(245, 246, 250, 0.85);
+      }
+      .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: var(--serif);
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--ink);
+        text-decoration: none;
+        font-variation-settings:
+          'opsz' 14,
+          'SOFT' 50;
+      }
+      .logo-mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent-hi) 0%, var(--accent-deep) 100%);
+        position: relative;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.4) inset,
+          0 4px 12px var(--accent-glow);
+      }
+      .logo-mark::before,
+      .logo-mark::after {
+        content: '';
+        position: absolute;
+        background: white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 1px;
+      }
+      .logo-mark::before {
+        width: 14px;
+        height: 2px;
+      }
+      .logo-mark::after {
+        width: 2px;
+        height: 14px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+        align-items: center;
+      }
+      .nav-links > li > a {
+        color: var(--ink-soft);
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.2s;
+        position: relative;
+      }
+      .nav-links > li > a:not(.btn)::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 1px;
+        background: var(--ink);
+        transition: width 0.3s;
+      }
+      .nav-links > li > a:not(.btn):hover {
+        color: var(--ink);
+      }
+      .nav-links > li > a:not(.btn):hover::after {
+        width: 100%;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 20px;
+        border-radius: 999px;
+        font-family: var(--sans);
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
+        white-space: nowrap;
+      }
+      .btn-primary {
+        background: var(--ink);
+        color: white;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.15) inset,
+          0 1px 2px rgba(10, 14, 26, 0.2),
+          0 4px 12px rgba(10, 14, 26, 0.12);
+      }
+      .btn-primary:hover {
+        background: var(--accent);
+        transform: translateY(-1px);
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.2) inset,
+          0 4px 16px var(--accent-glow),
+          0 12px 32px rgba(67, 56, 202, 0.25);
+      }
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.5);
+        color: var(--ink);
+        border: 1px solid var(--line);
+        backdrop-filter: blur(8px);
+      }
+      .btn-ghost:hover {
+        background: white;
+        border-color: var(--ink);
+      }
+
+      .hero {
+        padding: 80px 0 120px;
+        position: relative;
+        overflow: visible;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 11px;
+        color: var(--ink-soft);
+        margin-bottom: 36px;
+        padding: 8px 14px 8px 12px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        backdrop-filter: blur(12px);
+        font-family: var(--mono);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      .pulse-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent-hi);
+        position: relative;
+      }
+      .pulse-dot::after {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        background: var(--accent-hi);
+        opacity: 0.4;
+        animation: pulse 2.4s ease-out infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        100% {
+          transform: scale(2.5);
+          opacity: 0;
+        }
+      }
+
+      h1.display {
+        font-family: var(--serif);
+        font-weight: 350;
+        font-size: clamp(52px, 7.5vw, 112px);
+        line-height: 0.92;
+        letter-spacing: -0.045em;
+        margin-bottom: 32px;
+        font-variation-settings:
+          'opsz' 144,
+          'SOFT' 30;
+      }
+      h1.display em {
+        font-style: italic;
+        font-weight: 400;
+        background: linear-gradient(
+          120deg,
+          var(--accent-hi) 0%,
+          var(--accent) 50%,
+          var(--accent-deep) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        font-variation-settings:
+          'opsz' 144,
+          'SOFT' 80;
+      }
+
+      .underline-mark {
+        display: inline-block;
+        position: relative;
+      }
+      .underline-mark::after {
+        content: '';
+        position: absolute;
+        left: 2%;
+        bottom: 0.05em;
+        width: 96%;
+        height: 0.08em;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent-hi) 20%,
+          var(--accent-hi) 80%,
+          transparent
+        );
+        opacity: 0.4;
+        border-radius: 999px;
+      }
+
+      .hero-sub {
+        font-size: 19px;
+        color: var(--ink-soft);
+        max-width: 48ch;
+        margin-bottom: 44px;
+        line-height: 1.55;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 64px;
+      }
+
+      .hero-cta-meta {
+        font-size: 13px;
+        color: var(--ink-mute);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 4px;
+      }
+      .check-icon {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-metrics {
+        display: flex;
+        gap: 48px;
+        padding-top: 32px;
+        border-top: 1px solid var(--line);
+      }
+      .metric {
+        flex: 1;
+        transition: transform 0.3s;
+      }
+      .metric:hover {
+        transform: translateY(-2px);
+      }
+      .metric-num {
+        font-family: var(--serif);
+        font-size: 44px;
+        font-weight: 350;
+        letter-spacing: -0.03em;
+        color: var(--ink);
+        line-height: 1;
+        margin-bottom: 8px;
+        font-variation-settings: 'opsz' 60;
+      }
+      .metric-num span {
+        font-size: 0.6em;
+        color: var(--accent);
+        margin-left: 2px;
+      }
+      .metric-label {
+        font-size: 12px;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-family: var(--mono);
+        font-weight: 500;
+      }
+
+      .hero-visual {
+        position: relative;
+        height: 600px;
+        pointer-events: none;
+      }
+
+      .hero-orbits {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 700px;
+        z-index: 0;
+        opacity: 0.4;
+      }
+
+      .device-mock {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-3deg);
+        width: 300px;
+        background: var(--paper);
+        border-radius: 36px;
+        padding: 10px;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.8) inset,
+          0 1px 3px rgba(10, 14, 26, 0.05),
+          0 12px 24px rgba(10, 14, 26, 0.06),
+          0 32px 64px rgba(10, 14, 26, 0.1),
+          0 64px 128px rgba(67, 56, 202, 0.18);
+        border: 1px solid var(--line-soft);
+        z-index: 2;
+        animation: float 8s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) rotate(-3deg) translateY(0);
+        }
+        50% {
+          transform: translate(-50%, -50%) rotate(-3deg) translateY(-14px);
+        }
+      }
+
+      .device-screen {
+        background: linear-gradient(180deg, #fcfcfd 0%, #f5f6fa 100%);
+        border-radius: 28px;
+        overflow: hidden;
+        padding: 22px 18px 16px;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        position: relative;
+      }
+
+      .device-notch {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 22px;
+        background: var(--ink);
+        border-radius: 999px;
+        z-index: 1;
+      }
+
+      .chat-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 18px 4px 14px;
+        border-bottom: 1px solid var(--line-soft);
+      }
+      .chat-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-hi), var(--accent-deep));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 15px;
+        box-shadow: 0 2px 8px var(--accent-glow);
+      }
+      .chat-name {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      .chat-status {
+        font-size: 11px;
+        color: var(--ink-mute);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-family: var(--mono);
+      }
+      .chat-status::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #10b981;
+        box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+      }
+
+      .chat-msg {
+        padding: 10px 14px;
+        border-radius: 16px;
+        font-size: 13px;
+        max-width: 80%;
+        line-height: 1.45;
+        animation: msgIn 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+      }
+      .chat-msg:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .chat-msg:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      .chat-msg:nth-child(4) {
+        animation-delay: 1s;
+      }
+      .chat-msg:nth-child(5) {
+        animation-delay: 1.4s;
+      }
+
+      @keyframes msgIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .chat-msg.user {
+        background: var(--ink);
+        color: white;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+      }
+      .chat-msg.bot {
+        background: white;
+        border: 1px solid var(--line-soft);
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 1px 2px rgba(10, 14, 26, 0.03);
+      }
+      .chat-msg.bot.suggestion {
+        background: linear-gradient(135deg, var(--accent-soft) 0%, #f0e9ff 100%);
+        border-color: transparent;
+        color: var(--accent-deep);
+        font-weight: 500;
+      }
+
+      .chat-input {
+        margin-top: auto;
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 10px 6px 10px 16px;
+        font-size: 13px;
+        color: var(--ink-mute);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 1px 2px rgba(10, 14, 26, 0.03);
+      }
+      .mic-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-hi), var(--accent-deep));
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px var(--accent-glow);
+      }
+
+      .float-card {
+        position: absolute;
+        background: var(--paper);
+        border: 1px solid var(--line-soft);
+        border-radius: 18px;
+        padding: 14px 18px 14px 14px;
+        box-shadow:
+          0 1px 2px rgba(10, 14, 26, 0.04),
+          0 12px 24px rgba(10, 14, 26, 0.08),
+          0 32px 48px rgba(10, 14, 26, 0.06);
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        z-index: 3;
+        backdrop-filter: blur(12px);
+      }
+      .float-card-1 {
+        top: 80px;
+        left: 0;
+        animation: floatA 7s ease-in-out infinite;
+      }
+      .float-card-2 {
+        bottom: 100px;
+        right: 0;
+        animation: floatB 6s ease-in-out infinite;
+      }
+      .float-card-3 {
+        top: 220px;
+        right: -20px;
+        animation: floatA 9s ease-in-out infinite reverse;
+      }
+      @keyframes floatA {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes floatB {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      .float-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .float-card strong {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 2px;
+        color: var(--ink);
+      }
+      .float-card span {
+        color: var(--ink-mute);
+        font-size: 11px;
+        font-family: var(--mono);
+      }
+
+      .trusted {
+        padding: 64px 0 80px;
+        border-top: 1px solid var(--line-soft);
+        overflow: hidden;
+        position: relative;
+      }
+      .trusted-label {
+        text-align: center;
+        font-size: 11px;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-family: var(--mono);
+        margin-bottom: 36px;
+        font-weight: 500;
+      }
+      .marquee {
+        overflow: hidden;
+        position: relative;
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 10%,
+          black 90%,
+          transparent
+        );
+      }
+      .marquee-track {
+        display: flex;
+        gap: 64px;
+        animation: marquee 28s linear infinite;
+        width: max-content;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .logo-placeholder {
+        font-family: var(--serif);
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--ink-soft);
+        letter-spacing: -0.02em;
+        flex-shrink: 0;
+        opacity: 0.65;
+        transition: opacity 0.3s;
+        font-variation-settings: 'SOFT' 40;
+      }
+      .logo-placeholder:hover {
+        opacity: 1;
+      }
+      .logo-placeholder.alt-1 {
+        font-family: var(--sans);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 16px;
+        letter-spacing: 0.18em;
+      }
+      .logo-placeholder.alt-2 {
+        font-family: var(--mono);
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+      }
+
+      .section {
+        padding: 140px 0;
+        position: relative;
+      }
+
+      .section-header {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        align-items: end;
+        margin-bottom: 72px;
+        gap: 40px;
+      }
+      .section-label {
+        font-size: 11px;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--mono);
+        font-weight: 500;
+      }
+      .section-label::before {
+        content: '';
+        width: 28px;
+        height: 1px;
+        background: currentColor;
+      }
+      .section-label-num {
+        font-family: var(--mono);
+        color: var(--ink-mute);
+        margin-right: 8px;
+      }
+
+      h2.section-title {
+        font-family: var(--serif);
+        font-size: clamp(40px, 5.5vw, 68px);
+        font-weight: 350;
+        letter-spacing: -0.035em;
+        line-height: 1;
+        max-width: 14ch;
+        font-variation-settings:
+          'opsz' 96,
+          'SOFT' 30;
+      }
+      h2.section-title em {
+        font-style: italic;
+        font-weight: 400;
+        background: linear-gradient(120deg, var(--accent-hi) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-variation-settings:
+          'opsz' 96,
+          'SOFT' 80;
+      }
+      .section-intro {
+        font-size: 17px;
+        color: var(--ink-soft);
+        max-width: 36ch;
+        line-height: 1.6;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+      }
+      .feature {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 40px 36px;
+        transition: all 0.5s cubic-bezier(0.2, 0.7, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .feature::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 70% 0%, var(--accent-glow), transparent 60%);
+        opacity: 0;
+        transition: opacity 0.5s;
+        pointer-events: none;
+        z-index: -1;
+      }
+      .feature:hover {
+        transform: translateY(-6px);
+        border-color: var(--accent-warm);
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.5) inset,
+          0 24px 48px -16px rgba(67, 56, 202, 0.18),
+          0 48px 80px -24px rgba(67, 56, 202, 0.1);
+      }
+      .feature:hover::before {
+        opacity: 1;
+      }
+
+      .feature-icon-wrap {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 32px;
+      }
+      .feature-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--accent-soft) 0%, white 100%);
+        border: 1px solid var(--line-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        transition: all 0.4s cubic-bezier(0.2, 0.7, 0.3, 1);
+        position: relative;
+        z-index: 1;
+      }
+      .feature:hover .feature-icon {
+        transform: scale(1.06) rotate(-4deg);
+        background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+        color: white;
+        border-color: transparent;
+      }
+
+      .feature h3 {
+        font-family: var(--serif);
+        font-size: 28px;
+        font-weight: 400;
+        letter-spacing: -0.025em;
+        margin-bottom: 14px;
+        line-height: 1.1;
+        font-variation-settings:
+          'opsz' 36,
+          'SOFT' 30;
+      }
+      .feature p {
+        font-size: 15px;
+        color: var(--ink-soft);
+        line-height: 1.65;
+      }
+
+      .feature-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 24px;
+        padding: 5px 11px;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        color: var(--ink-soft);
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .feature-tag::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .feature.large {
+        grid-column: span 7;
+        background:
+          radial-gradient(circle at 100% 0%, rgba(99, 102, 241, 0.4), transparent 50%),
+          linear-gradient(160deg, var(--ink) 0%, #161d35 50%, var(--accent-deep) 100%);
+        color: white;
+        border-color: transparent;
+        overflow: hidden;
+        min-height: 380px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .feature.large::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -30%;
+        width: 100%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(165, 180, 252, 0.25) 0%, transparent 50%);
+        pointer-events: none;
+        animation: shimmer 8s ease-in-out infinite;
+      }
+      @keyframes shimmer {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.6;
+        }
+      }
+
+      .feature.large h3 {
+        color: white;
+        font-size: 36px;
+        max-width: 14ch;
+      }
+      .feature.large p {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 17px;
+        max-width: 38ch;
+      }
+      .feature.large .feature-icon {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.12);
+        color: var(--accent-warm);
+        backdrop-filter: blur(8px);
+      }
+      .feature.large:hover .feature-icon {
+        background: rgba(255, 255, 255, 0.15);
+        transform: scale(1.06) rotate(-4deg);
+      }
+      .feature.large .feature-tag {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.12);
+        color: var(--accent-warm);
+        backdrop-filter: blur(8px);
+      }
+
+      .lang-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 28px;
+        position: relative;
+        z-index: 1;
+      }
+      .lang-chip {
+        padding: 6px 12px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        transition: all 0.3s;
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 400;
+      }
+      .lang-chip:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-1px);
+      }
+
+      .feature.medium {
+        grid-column: span 5;
+      }
+      .feature.small {
+        grid-column: span 4;
+      }
+
+      .how-section {
+        background: var(--bg-2);
+        margin: 0 -100vw;
+        padding: 140px 100vw;
+        position: relative;
+        overflow: hidden;
+      }
+      .how-section::before {
+        content: '';
+        position: absolute;
+        top: -30%;
+        left: 5%;
+        width: 60vw;
+        height: 60vw;
+        background: radial-gradient(ellipse at center, var(--accent-glow), transparent 60%);
+        pointer-events: none;
+        opacity: 0.4;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 64px;
+        position: relative;
+      }
+
+      .steps::before {
+        content: '';
+        position: absolute;
+        top: 96px;
+        left: 16%;
+        right: 16%;
+        height: 1px;
+        background: repeating-linear-gradient(
+          to right,
+          var(--accent-warm) 0px,
+          var(--accent-warm) 4px,
+          transparent 4px,
+          transparent 10px
+        );
+        opacity: 0.5;
+        z-index: 0;
+      }
+
+      .step {
+        background: var(--paper);
+        border-radius: 28px;
+        padding: 40px 32px;
+        border: 1px solid var(--line);
+        transition: all 0.4s cubic-bezier(0.2, 0.7, 0.3, 1);
+        position: relative;
+        z-index: 1;
+      }
+      .step:hover {
+        transform: translateY(-6px);
+        box-shadow:
+          0 24px 48px -16px rgba(10, 14, 26, 0.1),
+          0 12px 24px -8px rgba(67, 56, 202, 0.1);
+        border-color: var(--accent-warm);
+      }
+
+      .step-num {
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--accent);
+        letter-spacing: 0.15em;
+        margin-bottom: 28px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-transform: uppercase;
+      }
+      .step-num-badge {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .step-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        background:
+          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent),
+          linear-gradient(135deg, var(--accent-soft), white);
+        border: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 28px;
+        color: var(--accent);
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.8) inset,
+          0 4px 12px rgba(67, 56, 202, 0.08);
+      }
+
+      .step h3 {
+        font-family: var(--serif);
+        font-size: 26px;
+        font-weight: 400;
+        margin-bottom: 14px;
+        letter-spacing: -0.02em;
+        font-variation-settings:
+          'opsz' 36,
+          'SOFT' 30;
+      }
+      .step p {
+        font-size: 15px;
+        color: var(--ink-soft);
+        line-height: 1.65;
+      }
+
+      .quote-section {
+        padding: 120px 0;
+        text-align: center;
+        position: relative;
+      }
+
+      .quote-mark {
+        font-family: var(--serif);
+        font-size: 140px;
+        line-height: 0.6;
+        color: var(--accent);
+        opacity: 0.2;
+        margin-bottom: 12px;
+        font-style: italic;
+        font-weight: 400;
+      }
+
+      .quote {
+        font-family: var(--serif);
+        font-size: clamp(28px, 3.4vw, 44px);
+        font-weight: 350;
+        line-height: 1.3;
+        letter-spacing: -0.025em;
+        max-width: 24ch;
+        margin: 0 auto 40px;
+        font-variation-settings:
+          'opsz' 60,
+          'SOFT' 40;
+      }
+      .quote em {
+        font-style: italic;
+        background: linear-gradient(120deg, var(--accent-hi), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-variation-settings:
+          'opsz' 60,
+          'SOFT' 80;
+      }
+
+      .attribution {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 20px 12px 12px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        box-shadow: 0 8px 24px rgba(10, 14, 26, 0.06);
+      }
+      .attribution-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-hi), var(--accent-deep));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 18px;
+        box-shadow: 0 2px 8px var(--accent-glow);
+      }
+      .attribution-name {
+        font-weight: 500;
+        display: block;
+        font-size: 14px;
+      }
+      .attribution-title {
+        color: var(--ink-mute);
+        font-size: 11px;
+        font-family: var(--mono);
+        letter-spacing: 0.08em;
+      }
+
+      .trust-card {
+        background:
+          radial-gradient(circle at 0% 0%, rgba(165, 180, 252, 0.15), transparent 50%), var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 36px;
+        padding: 72px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.5) inset,
+          0 24px 48px -16px rgba(10, 14, 26, 0.06);
+      }
+
+      .trust-card h2 {
+        font-family: var(--serif);
+        font-size: 48px;
+        font-weight: 350;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        margin-bottom: 24px;
+        font-variation-settings:
+          'opsz' 60,
+          'SOFT' 40;
+      }
+      .trust-card h2 em {
+        font-style: italic;
+        background: linear-gradient(120deg, var(--accent-hi), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .trust-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+      }
+      .trust-list li {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+        font-size: 14px;
+        color: var(--ink-soft);
+        padding: 22px 0;
+        border-bottom: 1px solid var(--line);
+        transition: all 0.3s;
+      }
+      .trust-list li:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .trust-list li:first-child {
+        padding-top: 0;
+      }
+      .trust-list li:hover {
+        padding-left: 8px;
+      }
+      .trust-list li:hover .trust-check {
+        background: var(--accent);
+        color: white;
+      }
+
+      .trust-check {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1px;
+        transition: all 0.3s;
+      }
+      .trust-list strong {
+        color: var(--ink);
+        font-weight: 500;
+        display: block;
+        margin-bottom: 4px;
+        font-size: 15px;
+      }
+
+      .cta-section {
+        padding: 140px 0;
+        position: relative;
+      }
+      .cta-card {
+        background:
+          radial-gradient(circle at 30% 0%, rgba(99, 102, 241, 0.4), transparent 60%),
+          radial-gradient(circle at 80% 100%, rgba(67, 56, 202, 0.6), transparent 60%),
+          linear-gradient(160deg, var(--ink) 0%, #161d35 50%, var(--accent-deep) 100%);
+        border-radius: 48px;
+        padding: 120px 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.1) inset,
+          0 24px 48px -16px rgba(10, 14, 26, 0.2),
+          0 64px 128px -32px rgba(67, 56, 202, 0.4);
+      }
+      .cta-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+        opacity: 0.08;
+        pointer-events: none;
+      }
+
+      .cta-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 60px 60px;
+        background-position: center;
+        pointer-events: none;
+        mask-image: radial-gradient(circle at center, black, transparent 70%);
+        -webkit-mask-image: radial-gradient(circle at center, black, transparent 70%);
+      }
+
+      .cta-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--accent-warm);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 32px;
+        padding: 6px 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 999px;
+        backdrop-filter: blur(8px);
+      }
+
+      .cta-card h2 {
+        font-family: var(--serif);
+        font-size: clamp(48px, 7vw, 88px);
+        font-weight: 350;
+        letter-spacing: -0.04em;
+        line-height: 0.95;
+        margin-bottom: 32px;
+        max-width: 14ch;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+        font-variation-settings:
+          'opsz' 144,
+          'SOFT' 30;
+      }
+      .cta-card h2 em {
+        font-style: italic;
+        background: linear-gradient(120deg, var(--accent-warm) 0%, #c7d2fe 50%, white 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-variation-settings:
+          'opsz' 144,
+          'SOFT' 80;
+      }
+
+      .cta-card p {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 48ch;
+        margin: 0 auto 48px;
+        line-height: 1.55;
+      }
+
+      .cta-card .btn-primary {
+        background: white;
+        color: var(--ink);
+        padding: 16px 32px;
+        font-size: 15px;
+      }
+      .cta-card .btn-primary:hover {
+        background: var(--accent-warm);
+        color: var(--ink);
+        box-shadow:
+          0 4px 16px rgba(255, 255, 255, 0.2),
+          0 12px 32px rgba(165, 180, 252, 0.4);
+      }
+
+      .cta-trust {
+        margin-top: 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 24px;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 12px;
+        font-family: var(--mono);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .cta-trust-dot {
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 80px 0 40px;
+        background: var(--bg-3);
+        position: relative;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 64px;
+        margin-bottom: 72px;
+      }
+      .footer-brand p {
+        font-size: 14px;
+        color: var(--ink-soft);
+        max-width: 32ch;
+        margin-top: 20px;
+        line-height: 1.65;
+      }
+      .footer-col h4 {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--ink-mute);
+        margin-bottom: 24px;
+        font-weight: 500;
+        font-family: var(--mono);
+      }
+      .footer-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .footer-col a {
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .footer-col a::before {
+        content: '→';
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: all 0.25s;
+        color: var(--accent);
+      }
+      .footer-col a:hover {
+        color: var(--accent);
+      }
+      .footer-col a:hover::before {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--line);
+        padding-top: 36px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: var(--ink-mute);
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        font-family: var(--mono);
+        letter-spacing: 0.08em;
+      }
+
+      .footer-watermark {
+        font-family: var(--serif);
+        font-size: clamp(60px, 14vw, 220px);
+        font-weight: 350;
+        letter-spacing: -0.05em;
+        line-height: 0.9;
+        color: var(--ink);
+        opacity: 0.04;
+        text-align: center;
+        margin: 40px 0 -20px;
+        user-select: none;
+        pointer-events: none;
+        font-style: italic;
+        font-variation-settings:
+          'opsz' 144,
+          'SOFT' 80;
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(28px);
+        animation: fadeUp 1s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+      }
+      .delay-1 {
+        animation-delay: 0.1s;
+      }
+      .delay-2 {
+        animation-delay: 0.25s;
+      }
+      .delay-3 {
+        animation-delay: 0.4s;
+      }
+      .delay-4 {
+        animation-delay: 0.55s;
+      }
+      .delay-5 {
+        animation-delay: 0.7s;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(36px);
+        transition: all 1s cubic-bezier(0.2, 0.7, 0.3, 1);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 1100px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+        .hero-visual {
+          height: 500px;
+        }
+        .section-header {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 900px) {
+        .nav-links li:not(:last-child) {
+          display: none;
+        }
+        .hero-metrics {
+          flex-wrap: wrap;
+          gap: 24px 32px;
+        }
+        .metric {
+          flex: 1 1 calc(50% - 16px);
+        }
+        .feature.large,
+        .feature.medium,
+        .feature.small {
+          grid-column: span 12;
+        }
+        .steps {
+          grid-template-columns: 1fr;
+        }
+        .steps::before {
+          display: none;
+        }
+        .trust-card {
+          grid-template-columns: 1fr;
+          padding: 48px 32px;
+          gap: 40px;
+          border-radius: 28px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+        .section {
+          padding: 80px 0;
+        }
+        .container {
+          padding: 0 24px;
+        }
+        .cta-card {
+          padding: 64px 28px;
+          border-radius: 28px;
+        }
+        .hero-visual {
+          height: 460px;
+        }
+        .device-mock {
+          width: 260px;
+        }
+        .float-card-3 {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="nav">
+      <div class="nav-inner container">
+        <a href="#" class="logo"><span class="logo-mark"></span> Aarogya</a>
+        <ul class="nav-links">
+          <li><a href="#features">Platform</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#trust">Trust</a></li>
+          <li><a href="#" class="btn btn-ghost">Sign in</a></li>
+          <li><a href="#" class="btn btn-primary">Get started →</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="eyebrow fade-up"
+              ><span class="pulse-dot"></span> Private Beta · Mumbai · Bengaluru · Pune</span
+            >
+
+            <h1 class="display fade-up delay-1">
+              Healthcare,<br />
+              gently <em class="underline-mark">made smarter.</em>
+            </h1>
+
+            <p class="hero-sub fade-up delay-2">
+              An AI-powered care platform built for the way India actually lives — across languages,
+              families, and providers. No app required. Just better health, every day.
+            </p>
+
+            <div class="hero-cta fade-up delay-3">
+              <a href="#" class="btn btn-primary">Start free →</a>
+              <a href="#" class="btn btn-ghost">For doctors</a>
+              <span class="hero-cta-meta">
+                <span class="check-icon">
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </span>
+                Free forever for individuals
+              </span>
+            </div>
+
+            <div class="hero-metrics fade-up delay-4">
+              <div class="metric">
+                <div class="metric-num">12<span>+</span></div>
+                <div class="metric-label">Languages</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num">2<span>hrs</span></div>
+                <div class="metric-label">Saved daily</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num">24/7</div>
+                <div class="metric-label">Triage</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num">ABDM</div>
+                <div class="metric-label">Integrated</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual fade-up delay-3">
+            <svg
+              class="hero-orbits"
+              viewBox="0 0 700 700"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle
+                cx="350"
+                cy="350"
+                r="340"
+                stroke="#4338ca"
+                stroke-opacity="0.08"
+                stroke-dasharray="2 6"
+              />
+              <circle
+                cx="350"
+                cy="350"
+                r="270"
+                stroke="#4338ca"
+                stroke-opacity="0.1"
+                stroke-dasharray="2 4"
+              />
+              <circle cx="350" cy="350" r="200" stroke="#4338ca" stroke-opacity="0.12" />
+              <circle cx="350" cy="350" r="130" stroke="#4338ca" stroke-opacity="0.18" />
+            </svg>
+
+            <div class="float-card float-card-1">
+              <div class="float-icon">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </div>
+              <div>
+                <strong>Appointment booked</strong>
+                <span>DR. SHARMA · TUE 10:00</span>
+              </div>
+            </div>
+
+            <div class="device-mock">
+              <div class="device-screen">
+                <div class="device-notch"></div>
+                <div class="chat-header">
+                  <div class="chat-avatar">A</div>
+                  <div>
+                    <div class="chat-name">Aarogya Assistant</div>
+                    <div class="chat-status">ONLINE · हिंदी</div>
+                  </div>
+                </div>
+                <div class="chat-msg user">मुझे बुखार है 3 दिन से</div>
+                <div class="chat-msg bot">समझ गई। बुखार कितना है?</div>
+                <div class="chat-msg user">101°F</div>
+                <div class="chat-msg bot suggestion">
+                  ✓ General physician se baat karein.<br />
+                  Dr. Sharma · ₹300 · 30 min
+                </div>
+                <div class="chat-input">
+                  <span>Type or speak...</span>
+                  <div class="mic-btn">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="float-card float-card-2">
+              <div class="float-icon" style="background: #dcfce7; color: #16a34a">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div>
+                <strong>Records synced</strong>
+                <span>FROM APOLLO · ABDM</span>
+              </div>
+            </div>
+
+            <div class="float-card float-card-3">
+              <div class="float-icon" style="background: #fef3c7; color: #d97706">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div>
+                <strong>Refill reminder</strong>
+                <span>METFORMIN · 3 DAYS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="trusted reveal">
+      <div class="trusted-label container">
+        — Trusted by leading clinicians & hospital networks —
+      </div>
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="logo-placeholder">Apollo Health</span>
+          <span class="logo-placeholder alt-1">Fortis</span>
+          <span class="logo-placeholder">Manipal</span>
+          <span class="logo-placeholder alt-2">/medanta</span>
+          <span class="logo-placeholder alt-1">Narayana</span>
+          <span class="logo-placeholder">AIIMS Partners</span>
+          <span class="logo-placeholder alt-2">{ kokilaben }</span>
+          <span class="logo-placeholder">MaxCare</span>
+          <span class="logo-placeholder">Apollo Health</span>
+          <span class="logo-placeholder alt-1">Fortis</span>
+          <span class="logo-placeholder">Manipal</span>
+          <span class="logo-placeholder alt-2">/medanta</span>
+          <span class="logo-placeholder alt-1">Narayana</span>
+          <span class="logo-placeholder">AIIMS Partners</span>
+          <span class="logo-placeholder alt-2">{ kokilaben }</span>
+          <span class="logo-placeholder">MaxCare</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-label"><span class="section-label-num">01 /</span> What we do</div>
+            <h2 class="section-title">A quiet revolution in <em>everyday care.</em></h2>
+          </div>
+          <p class="section-intro">
+            Five things existing apps get wrong — and how we get them right. Built around the
+            patient, the doctor, and the family that holds them together.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature large reveal">
+            <div>
+              <div class="feature-icon-wrap">
+                <div class="feature-icon">
+                  <svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <line x1="12" y1="19" x2="12" y2="23" />
+                    <line x1="8" y1="23" x2="16" y2="23" />
+                  </svg>
+                </div>
+              </div>
+              <h3>Voice-first, in your <em style="font-style: italic">own</em> language.</h3>
+              <p>
+                Speak naturally — book a doctor, log a symptom, understand a report. Designed for
+                parents, grandparents, and anyone the typing-first internet left behind.
+              </p>
+            </div>
+            <div>
+              <div class="lang-strip">
+                <span class="lang-chip">हिंदी</span>
+                <span class="lang-chip">தமிழ்</span>
+                <span class="lang-chip">తెలుగు</span>
+                <span class="lang-chip">বাংলা</span>
+                <span class="lang-chip">मराठी</span>
+                <span class="lang-chip">ગુજરાતી</span>
+                <span class="lang-chip">ಕನ್ನಡ</span>
+                <span class="lang-chip">+ 5 more</span>
+              </div>
+              <div class="feature-tag" style="margin-top: 24px">⌘ 12 LANGUAGES SUPPORTED</div>
+            </div>
+          </div>
+
+          <div class="feature medium reveal">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon">
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3>Healthcare on WhatsApp.</h3>
+            <p>
+              No app to download. Book appointments, get prescriptions, ask follow-ups, and receive
+              lab reports — all on the chat your family already uses.
+            </p>
+            <div class="feature-tag">⌘ ZERO INSTALL</div>
+          </div>
+
+          <div class="feature small reveal">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+            </div>
+            <h3>Family caregiver mode.</h3>
+            <p>
+              Manage care for parents, kids, and partners with proper permissions and shared
+              dashboards. Built for joint families.
+            </p>
+          </div>
+
+          <div class="feature small reveal">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+              </div>
+            </div>
+            <h3>One unified timeline.</h3>
+            <p>
+              Every doctor, every prescription, every lab. We pull it all together via ABDM and flag
+              conflicts before they hurt you.
+            </p>
+          </div>
+
+          <div class="feature small reveal">
+            <div class="feature-icon-wrap">
+              <div class="feature-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+            </div>
+            <h3>AI Second Opinion.</h3>
+            <p>
+              Upload a diagnosis. Get five thoughtful questions to ask your doctor — never a
+              counter-diagnosis. Always doctor-verifiable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section" id="how">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-label">
+              <span class="section-label-num">02 /</span> How it works
+            </div>
+            <h2 class="section-title">Three steps to <em>better care.</em></h2>
+          </div>
+          <p class="section-intro">
+            From sign-up to your first AI-summarized lab report in under five minutes. No friction,
+            no fuss.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-num"><span class="step-num-badge">i</span> Step One</div>
+            <div class="step-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+            </div>
+            <h3>Connect once.</h3>
+            <p>
+              Link your ABHA ID and we'll quietly pull your records together — past prescriptions,
+              lab reports, and hospital visits, all in one place.
+            </p>
+          </div>
+
+          <div class="step reveal">
+            <div class="step-num"><span class="step-num-badge">ii</span> Step Two</div>
+            <div class="step-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+            </div>
+            <h3>Talk to us.</h3>
+            <p>
+              Type, tap, or just speak. We understand symptoms, schedule appointments, and explain
+              reports in language that actually makes sense.
+            </p>
+          </div>
+
+          <div class="step reveal">
+            <div class="step-num"><span class="step-num-badge">iii</span> Step Three</div>
+            <div class="step-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </div>
+            <h3>Stay ahead of it.</h3>
+            <p>
+              Smart reminders, refill alerts, follow-through after discharge, and gentle nudges when
+              something deserves a second look.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section reveal">
+      <div class="container">
+        <div class="quote-mark">"</div>
+        <p class="quote">
+          Aarogya is the first health app my mother actually uses. She speaks Marathi to it, and it
+          just <em>understands.</em> That alone changed everything.
+        </p>
+        <div class="attribution">
+          <div class="attribution-avatar">P</div>
+          <div style="text-align: left">
+            <span class="attribution-name">Priya Deshmukh</span>
+            <span class="attribution-title">SOFTWARE ENGINEER · PUNE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trust">
+      <div class="container">
+        <div class="trust-card reveal">
+          <div>
+            <div class="section-label">
+              <span class="section-label-num">03 /</span> Built for trust
+            </div>
+            <h2>Your records<br />are <em>yours.</em><br />Always.</h2>
+            <p style="color: var(--ink-soft); font-size: 16px; margin-top: 16px; line-height: 1.65">
+              Healthcare has been careless with personal data for too long. We do the opposite — and
+              we'd rather lose features than your trust.
+            </p>
+          </div>
+          <ul class="trust-list">
+            <li>
+              <span class="trust-check"
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" /></svg
+              ></span>
+              <div>
+                <strong>End-to-end encryption</strong>Records encrypted at rest and in transit. We
+                can't read them, and neither can anyone else.
+              </div>
+            </li>
+            <li>
+              <span class="trust-check"
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" /></svg
+              ></span>
+              <div>
+                <strong>One-click export</strong>Take everything with you, anytime. PDF, FHIR, JSON
+                — your choice.
+              </div>
+            </li>
+            <li>
+              <span class="trust-check"
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" /></svg
+              ></span>
+              <div>
+                <strong>Doctor-verified AI</strong>Every AI suggestion shows its reasoning and
+                confidence. Real doctors review the rest.
+              </div>
+            </li>
+            <li>
+              <span class="trust-check"
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" /></svg
+              ></span>
+              <div>
+                <strong>DPDP Act compliant</strong>Privacy by design, audited quarterly, transparent
+                forever.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card reveal">
+          <span class="cta-eyebrow">
+            <span class="pulse-dot" style="background: #a5b4fc"></span>
+            Now Onboarding · Limited Spots
+          </span>
+          <h2>Care that <em>finally</em> feels human.</h2>
+          <p>
+            Join the early waitlist. We're onboarding new families every week, starting with Mumbai,
+            Bengaluru, and Pune.
+          </p>
+          <a href="#" class="btn btn-primary">Join the waitlist →</a>
+          <div class="cta-trust">
+            <span>No credit card</span>
+            <span class="cta-trust-dot"></span>
+            <span>Free forever</span>
+            <span class="cta-trust-dot"></span>
+            <span>Privacy-first</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#" class="logo"><span class="logo-mark"></span> Aarogya</a>
+            <p>
+              An AI-powered healthcare platform built for India — and the families who hold it
+              together.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Platform</h4>
+            <ul>
+              <li><a href="#">For patients</a></li>
+              <li><a href="#">For doctors</a></li>
+              <li><a href="#">For hospitals</a></li>
+              <li><a href="#">For caregivers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">DPDP notice</a></li>
+              <li><a href="#">Security</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-watermark">Aarogya<em style="font-style: italic">.</em></div>
+
+        <div class="footer-bottom">
+          <span>© 2026 AAROGYA HEALTH TECH</span>
+          <span>MADE IN INDIA · CARE FOR EVERYONE</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 8) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -80px 0px' },
+      );
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
