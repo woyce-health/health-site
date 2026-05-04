@@ -65,11 +65,23 @@ TMPFILE=$(mktemp /tmp/cf-function-XXXXXX.js)
 cat > "$TMPFILE" <<'EOF'
 function handler(event) {
   var uri = event.request.uri;
-  if (uri.endsWith('/')) {
-    event.request.uri += 'index.html';
-  } else if (!uri.split('/').pop().includes('.')) {
-    event.request.uri += '/index.html';
+
+  if (uri === '/') {
+    return event.request;
   }
+
+  // Strip trailing slash
+  if (uri.endsWith('/')) {
+    uri = uri.slice(0, -1);
+  }
+
+  // If no file extension, append .html (Next.js flat static export)
+  var lastSegment = uri.split('/').pop();
+  if (!lastSegment.includes('.')) {
+    uri = uri + '.html';
+  }
+
+  event.request.uri = uri;
   return event.request;
 }
 EOF
