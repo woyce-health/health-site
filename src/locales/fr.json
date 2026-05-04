@@ -37,5 +37,89 @@
   },
   "LocaleSwitcher": {
     "change_language": "Changer de langue"
+  },
+  "Patients": {
+    "meta_title": "Pour les patients — Aarogya",
+    "meta_description": "Soins de santé vocaux en 12 langues indiennes. WhatsApp, soins familiaux, avis IA — sans application.",
+    "heading": "Des soins de santé construits autour de vous",
+    "subheading": "Parlez naturellement dans votre langue. Gérez la santé de votre famille. Obtenez des informations IA avant chaque consultation."
+  },
+  "Doctors": {
+    "meta_title": "Pour les médecins — Aarogya",
+    "meta_description": "Scribe IA, aide à la décision clinique et système de gestion de cabinet complet. Économisez 2+ heures par jour.",
+    "heading": "Votre partenaire de cabinet alimenté par l'IA",
+    "subheading": "Passez moins de temps sur la paperasse et plus de temps avec vos patients."
+  },
+  "Pricing": {
+    "meta_title": "Tarifs — Aarogya",
+    "meta_description": "Gratuit pour les patients, toujours. Les médecins bénéficient de 10 consultations gratuites par mois.",
+    "heading": "Tarification simple et transparente",
+    "subheading": "Gratuit pour les patients. Les médecins commencent gratuitement — passez à la version supérieure quand vous êtes prêt."
+  },
+  "Trust": {
+    "meta_title": "Confiance et sécurité — Aarogya",
+    "meta_description": "Comment Aarogya protège vos données de santé — conforme DPDP, chiffré de bout en bout.",
+    "heading": "Vos données, vos règles",
+    "subheading": "Conforme au DPDP, chiffré de bout en bout, conçu pour que vous gardiez le contrôle total."
+  },
+  "Faq": {
+    "meta_title": "FAQ — Aarogya",
+    "meta_description": "Questions fréquemment posées sur Aarogya — la plateforme de santé alimentée par l'IA.",
+    "heading": "Questions fréquentes",
+    "subheading": "Tout ce que vous devez savoir sur Aarogya."
+  },
+  "Hospitals": {
+    "meta_title": "Pour les hôpitaux — Aarogya",
+    "meta_description": "Outils IA de niveau entreprise pour les hôpitaux. Intégrez Aarogya à vos flux de travail existants.",
+    "heading": "Dynamisez votre hôpital avec l'IA",
+    "subheading": "Des files d'attente OPD aux résumés de sortie, Aarogya s'intègre à vos systèmes existants."
+  },
+  "Caregivers": {
+    "meta_title": "Pour les aidants — Aarogya",
+    "meta_description": "Gérez la santé des personnes que vous aimez. Un seul endroit pour les parents, enfants et famille.",
+    "heading": "Prenez soin de tous ceux que vous aimez",
+    "subheading": "Ajoutez des membres de la famille, suivez les médicaments et coordonnez les soins depuis un seul compte."
+  },
+  "Careers": {
+    "meta_title": "Carrières — Aarogya",
+    "meta_description": "Rejoignez l'équipe qui construit l'avenir des soins de santé en Inde.",
+    "heading": "Construisez l'avenir des soins de santé avec nous",
+    "subheading": "Nous sommes une petite équipe animée par une mission, travaillant sur des problèmes difficiles qui comptent."
+  },
+  "Press": {
+    "meta_title": "Presse — Aarogya",
+    "meta_description": "Dernières nouvelles, communiqués de presse et ressources médias pour Aarogya Health Tech.",
+    "heading": "Dans les médias",
+    "subheading": "Demandes médias : press@aarogya.health"
+  },
+  "Contact": {
+    "meta_title": "Contact — Aarogya",
+    "meta_description": "Contactez l'équipe Aarogya. Nous serions ravis de vous entendre.",
+    "heading": "Contactez-nous",
+    "subheading": "Vous avez une question ou souhaitez vous associer à nous ? Nous lisons chaque message."
+  },
+  "Privacy": {
+    "meta_title": "Politique de confidentialité — Aarogya",
+    "meta_description": "Comment Aarogya collecte, utilise et protège vos informations de santé personnelles.",
+    "heading": "Politique de confidentialité",
+    "subheading": "Dernière mise à jour : mai 2026"
+  },
+  "Terms": {
+    "meta_title": "Conditions d'utilisation — Aarogya",
+    "meta_description": "Conditions régissant l'utilisation de la plateforme Aarogya.",
+    "heading": "Conditions d'utilisation",
+    "subheading": "Dernière mise à jour : mai 2026"
+  },
+  "Dpdp": {
+    "meta_title": "Notice DPDP — Aarogya",
+    "meta_description": "Notice d'Aarogya en vertu de la loi indienne sur la protection des données personnelles numériques 2023.",
+    "heading": "Notice DPDP",
+    "subheading": "Vos droits en vertu de la loi sur la protection des données personnelles numériques, 2023."
+  },
+  "Security": {
+    "meta_title": "Sécurité — Aarogya",
+    "meta_description": "Comment Aarogya protège vos données de santé. Chiffrement, contrôles d'accès et divulgation responsable.",
+    "heading": "La sécurité chez Aarogya",
+    "subheading": "Chiffrement de bout en bout, accès au moindre privilège et programme de divulgation responsable."
   }
 }

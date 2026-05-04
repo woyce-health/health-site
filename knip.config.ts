@@ -5,6 +5,7 @@ const config: KnipConfig = {
   ignore: ['src/libs/I18n.ts', 'src/types/I18n.ts', 'tests/**/*.ts'],
   // Dependencies to ignore during analysis
   ignoreDependencies: [
+    '@chromatic-com/playwright',
     '@commitlint/types',
     '@swc/helpers', // Avoid error in CI: "`npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync."
     'postcss',

@@ -37,5 +37,89 @@
   },
   "LocaleSwitcher": {
     "change_language": "Change language"
+  },
+  "Patients": {
+    "meta_title": "For patients — Aarogya",
+    "meta_description": "Voice-first healthcare in 12 Indian languages. WhatsApp, family care, AI second opinions — no app required.",
+    "heading": "Healthcare built around you",
+    "subheading": "Speak naturally in your language. Manage your family's health. Get AI-powered insights before every consultation."
+  },
+  "Doctors": {
+    "meta_title": "For doctors — Aarogya",
+    "meta_description": "AI scribe, clinical decision support, and a full practice OS. Save 2+ hours daily on documentation.",
+    "heading": "Your AI-powered practice partner",
+    "subheading": "Spend less time on paperwork and more time with patients. Aarogya handles documentation, scheduling, and decision support."
+  },
+  "Pricing": {
+    "meta_title": "Pricing — Aarogya",
+    "meta_description": "Free for patients, always. Doctors get 10 free consultations per month. Simple, transparent pricing.",
+    "heading": "Simple, transparent pricing",
+    "subheading": "Free for patients, always. Doctors start free — upgrade only when you're ready."
+  },
+  "Trust": {
+    "meta_title": "Trust & security — Aarogya",
+    "meta_description": "How Aarogya protects your health data — DPDP compliant, end-to-end encrypted, and built with Indian privacy standards.",
+    "heading": "Your data, your rules",
+    "subheading": "DPDP-compliant, end-to-end encrypted, and designed so you remain in full control of your health records."
+  },
+  "Faq": {
+    "meta_title": "FAQ — Aarogya",
+    "meta_description": "Frequently asked questions about Aarogya — the AI-powered healthcare platform built for India.",
+    "heading": "Frequently asked questions",
+    "subheading": "Everything you need to know about Aarogya."
+  },
+  "Hospitals": {
+    "meta_title": "For hospitals — Aarogya",
+    "meta_description": "Enterprise-grade AI tools for hospitals. Integrate Aarogya into your existing workflows and systems.",
+    "heading": "Power your hospital with AI",
+    "subheading": "From OPD queues to discharge summaries, Aarogya integrates with your existing systems to reduce load and improve outcomes."
+  },
+  "Caregivers": {
+    "meta_title": "For caregivers — Aarogya",
+    "meta_description": "Manage health for the people you love. One place for parents, children, and extended family.",
+    "heading": "Care for everyone you love",
+    "subheading": "Add family members, track medications, and coordinate care — all from a single account."
+  },
+  "Careers": {
+    "meta_title": "Careers — Aarogya",
+    "meta_description": "Join the team building the future of healthcare in India. Open roles in engineering, product, and clinical AI.",
+    "heading": "Build healthcare's future with us",
+    "subheading": "We're a small, mission-driven team working on hard problems that matter. Come help us reinvent care for India."
+  },
+  "Press": {
+    "meta_title": "Press — Aarogya",
+    "meta_description": "Latest news, press releases, and media resources for Aarogya Health Tech.",
+    "heading": "In the news",
+    "subheading": "Media inquiries: press@aarogya.health"
+  },
+  "Contact": {
+    "meta_title": "Contact — Aarogya",
+    "meta_description": "Get in touch with the Aarogya team. We'd love to hear from you.",
+    "heading": "Get in touch",
+    "subheading": "Have a question or want to partner with us? We read every message."
+  },
+  "Privacy": {
+    "meta_title": "Privacy policy — Aarogya",
+    "meta_description": "How Aarogya collects, uses, and protects your personal health information.",
+    "heading": "Privacy policy",
+    "subheading": "Last updated: May 2026"
+  },
+  "Terms": {
+    "meta_title": "Terms of service — Aarogya",
+    "meta_description": "Terms and conditions governing use of the Aarogya platform.",
+    "heading": "Terms of service",
+    "subheading": "Last updated: May 2026"
+  },
+  "Dpdp": {
+    "meta_title": "DPDP notice — Aarogya",
+    "meta_description": "Aarogya's notice under India's Digital Personal Data Protection Act 2023.",
+    "heading": "DPDP notice",
+    "subheading": "Your rights under the Digital Personal Data Protection Act, 2023."
+  },
+  "Security": {
+    "meta_title": "Security — Aarogya",
+    "meta_description": "How Aarogya keeps your health data safe. Encryption, access controls, and responsible disclosure.",
+    "heading": "Security at Aarogya",
+    "subheading": "End-to-end encryption, least-privilege access, and a responsible disclosure programme."
   }
 }

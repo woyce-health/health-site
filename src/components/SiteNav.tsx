@@ -1,3 +1,5 @@
+import { Link } from '@/libs/I18nNavigation';
+
 export function SiteNav() {
   return (
     <>
@@ -5,9 +7,9 @@ export function SiteNav() {
         <div className="nav-inner container">
           {/* Brand zone */}
           <div className="nav-brand-zone">
-            <a href="#" className="logo">
+            <Link href="/" className="logo">
               <span className="logo-mark" /> Aarogya
-            </a>
+            </Link>
             <span className="nav-version">v 2.0</span>
           </div>
 
@@ -15,12 +17,12 @@ export function SiteNav() {
           <div className="nav-capsule">
             <ul className="nav-links">
               <li className="nav-item">
-                <a href="#patients" className="nav-link has-menu">
+                <Link href="/patients" className="nav-link has-menu">
                   For patients
-                </a>
+                </Link>
                 <div className="nav-mega">
                   <div className="nav-mega-grid">
-                    <a href="#patients" className="nav-mega-item">
+                    <Link href="/patients" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -54,9 +56,9 @@ export function SiteNav() {
                         </div>
                         <div className="nav-mega-desc">Speak naturally in 12 Indian languages.</div>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a href="#patients" className="nav-mega-item">
+                    <Link href="/patients" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -89,9 +91,9 @@ export function SiteNav() {
                         </div>
                         <div className="nav-mega-desc">No app to download. It just works.</div>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a href="#patients" className="nav-mega-item">
+                    <Link href="/caregivers" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -116,9 +118,9 @@ export function SiteNav() {
                         </div>
                         <div className="nav-mega-desc">Care for parents and kids in one place.</div>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a href="#timeline" className="nav-mega-item">
+                    <Link href="/patients" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -155,9 +157,9 @@ export function SiteNav() {
                           Every doctor&apos;s records, in one view.
                         </div>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a href="#patients" className="nav-mega-item">
+                    <Link href="/patients" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -191,9 +193,9 @@ export function SiteNav() {
                         </div>
                         <div className="nav-mega-desc">Smart questions for your next visit.</div>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a href="#patients" className="nav-mega-item">
+                    <Link href="/patients" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -219,12 +221,12 @@ export function SiteNav() {
                           For mental and sexual health, privately.
                         </div>
                       </div>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="nav-mega-footer">
                     <span>FREE FOREVER · NO APP DOWNLOAD</span>
-                    <a href="#patients" className="nav-mega-cta">
+                    <Link href="/patients" className="nav-mega-cta">
                       Explore patient features{' '}
                       <svg
                         width="12"
@@ -239,18 +241,18 @@ export function SiteNav() {
                         <line x1="5" y1="12" x2="19" y2="12" />
                         <polyline points="12 5 19 12 12 19" />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </li>
 
               <li className="nav-item">
-                <a href="#doctors" className="nav-link has-menu">
+                <Link href="/doctors" className="nav-link has-menu">
                   For doctors
-                </a>
+                </Link>
                 <div className="nav-mega">
                   <div className="nav-mega-grid">
-                    <a href="#doctors" className="nav-mega-item">
+                    <Link href="/doctors" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -284,9 +286,9 @@ export function SiteNav() {
                         </div>
                         <div className="nav-mega-desc">Save 2+ hours daily on documentation.</div>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a href="#doctors" className="nav-mega-item">
+                    <Link href="/doctors" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -321,9 +323,9 @@ export function SiteNav() {
                           Drug interactions, guidelines, differentials.
                         </div>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a href="#doctors" className="nav-mega-item">
+                    <Link href="/doctors" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -361,9 +363,9 @@ export function SiteNav() {
                           Schedules, payments, follow-ups, analytics.
                         </div>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a href="#" className="nav-mega-item">
+                    <Link href="/doctors" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -386,9 +388,9 @@ export function SiteNav() {
                         </div>
                         <div className="nav-mega-desc">Integrate Aarogya into your stack.</div>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a href="#pricing" className="nav-mega-item">
+                    <Link href="/pricing" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -422,9 +424,9 @@ export function SiteNav() {
                         </div>
                         <div className="nav-mega-desc">Free for 10 consultations / month.</div>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a href="#" className="nav-mega-item">
+                    <Link href="/doctors" className="nav-mega-item">
                       <div className="nav-mega-icon">
                         <svg
                           width="18"
@@ -459,12 +461,12 @@ export function SiteNav() {
                         </div>
                         <div className="nav-mega-desc">Both of you get 3 months Pro, free.</div>
                       </div>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="nav-mega-footer">
                     <span>10 FREE CONSULTATIONS · NO COMMITMENT</span>
-                    <a href="#doctors" className="nav-mega-cta">
+                    <Link href="/doctors" className="nav-mega-cta">
                       See doctor tools{' '}
                       <svg
                         width="12"
@@ -479,39 +481,39 @@ export function SiteNav() {
                         <line x1="5" y1="12" x2="19" y2="12" />
                         <polyline points="12 5 19 12 12 19" />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </li>
 
               <li className="nav-item">
-                <a href="#pricing" className="nav-link">
+                <Link href="/pricing" className="nav-link">
                   Pricing
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="#trust" className="nav-link">
+                <Link href="/trust" className="nav-link">
                   Trust
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="#faq" className="nav-link">
+                <Link href="/faq" className="nav-link">
                   FAQ
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Right action zone */}
           <div className="nav-actions">
-            <a href="#" className="nav-status-pill" title="System status">
+            <Link href="/" className="nav-status-pill" title="System status">
               <span className="nav-status-dot" />
               <span>Beta</span>
-            </a>
-            <a href="#" className="btn btn-ghost">
+            </Link>
+            <Link href="/sign-in" className="btn btn-ghost">
               Sign in
-            </a>
-            <a href="#" className="btn btn-primary">
+            </Link>
+            <Link href="/patients" className="btn btn-primary">
               Get started
               <svg
                 width="14"
@@ -526,7 +528,7 @@ export function SiteNav() {
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-            </a>
+            </Link>
             <button className="nav-toggle" id="navToggle" aria-label="Toggle menu" type="button">
               <div className="nav-toggle-icon">
                 <span />
@@ -542,41 +544,41 @@ export function SiteNav() {
       <div className="mobile-menu" id="mobileMenu">
         <ul className="mobile-menu-list">
           <li>
-            <a href="#patients">
+            <Link href="/patients">
               <span>For patients</span>
               <span>01</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#doctors">
+            <Link href="/doctors">
               <span>For doctors</span>
               <span>02</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#pricing">
+            <Link href="/pricing">
               <span>Pricing</span>
               <span>03</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#trust">
+            <Link href="/trust">
               <span>Trust</span>
               <span>04</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#faq">
+            <Link href="/faq">
               <span>FAQ</span>
               <span>05</span>
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="mobile-menu-actions">
-          <a href="#" className="btn btn-ghost">
+          <Link href="/sign-in" className="btn btn-ghost">
             Sign in
-          </a>
-          <a href="#" className="btn btn-primary">
+          </Link>
+          <Link href="/patients" className="btn btn-primary">
             Get started
             <svg
               width="14"
@@ -591,7 +593,7 @@ export function SiteNav() {
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
             </svg>
-          </a>
+          </Link>
         </div>
         <div className="mobile-menu-footer">Made in India · Care for everyone.</div>
       </div>

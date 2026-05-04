@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { AarogyaInteractive } from '@/components/AarogyaInteractive';
-import { CtaSection } from '@/components/CtaSection';
-import { FeaturesSection } from '@/components/FeaturesSection';
-import { HeroSection } from '@/components/HeroSection';
-import { HowItWorksSection } from '@/components/HowItWorksSection';
-import { QuoteSection } from '@/components/QuoteSection';
+import { CtaSection } from '@/components/sections/CtaSection';
+import { FeaturesSection } from '@/components/sections/FeaturesSection';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
+import { QuoteSection } from '@/components/sections/QuoteSection';
+import { TrustedSection } from '@/components/sections/TrustedSection';
+import { TrustSection } from '@/components/sections/TrustSection';
 import { SiteFooter } from '@/components/SiteFooter';
 import { SiteNav } from '@/components/SiteNav';
-import { TrustedSection } from '@/components/TrustedSection';
-import { TrustSection } from '@/components/TrustSection';
 
 export const metadata: Metadata = {
   title: 'Aarogya — Healthcare, reimagined for India',

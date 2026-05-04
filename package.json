@@ -25,6 +25,7 @@
     "zod": "^4.4.1"
   },
   "devDependencies": {
+    "@chromatic-com/playwright": "^0.13.3",
     "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^20.5.3",
     "@commitlint/prompt-cli": "^20.5.3",

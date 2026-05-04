@@ -1,3 +1,5 @@
+import { Link } from '@/libs/I18nNavigation';
+
 export function HeroSection() {
   return (
     <header className="hero">
@@ -20,12 +22,12 @@ export function HeroSection() {
             </p>
 
             <div className="hero-cta fade-up delay-3">
-              <a href="#" className="btn btn-primary">
+              <Link href="/patients" className="btn btn-primary">
                 Start free →
-              </a>
-              <a href="#" className="btn btn-ghost">
+              </Link>
+              <Link href="/doctors" className="btn btn-ghost">
                 For doctors
-              </a>
+              </Link>
               <span className="hero-cta-meta">
                 <span className="check-icon">
                   <svg

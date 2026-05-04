@@ -1,12 +1,14 @@
+import { Link } from '@/libs/I18nNavigation';
+
 export function SiteFooter() {
   return (
     <footer>
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="#" className="logo">
+            <Link href="/" className="logo">
               <span className="logo-mark" /> Aarogya
-            </a>
+            </Link>
             <p>
               An AI-powered healthcare platform built for India — and the families who hold it
               together.
@@ -16,16 +18,16 @@ export function SiteFooter() {
             <h4>Platform</h4>
             <ul>
               <li>
-                <a href="#">For patients</a>
+                <Link href="/patients">For patients</Link>
               </li>
               <li>
-                <a href="#">For doctors</a>
+                <Link href="/doctors">For doctors</Link>
               </li>
               <li>
-                <a href="#">For hospitals</a>
+                <Link href="/hospitals">For hospitals</Link>
               </li>
               <li>
-                <a href="#">For caregivers</a>
+                <Link href="/caregivers">For caregivers</Link>
               </li>
             </ul>
           </div>
@@ -33,16 +35,16 @@ export function SiteFooter() {
             <h4>Company</h4>
             <ul>
               <li>
-                <a href="#">About</a>
+                <Link href="/about">About</Link>
               </li>
               <li>
-                <a href="#">Careers</a>
+                <Link href="/careers">Careers</Link>
               </li>
               <li>
-                <a href="#">Press</a>
+                <Link href="/press">Press</Link>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <Link href="/contact">Contact</Link>
               </li>
             </ul>
           </div>
@@ -50,16 +52,16 @@ export function SiteFooter() {
             <h4>Legal</h4>
             <ul>
               <li>
-                <a href="#">Privacy</a>
+                <Link href="/privacy">Privacy</Link>
               </li>
               <li>
-                <a href="#">Terms</a>
+                <Link href="/terms">Terms</Link>
               </li>
               <li>
-                <a href="#">DPDP notice</a>
+                <Link href="/dpdp">DPDP notice</Link>
               </li>
               <li>
-                <a href="#">Security</a>
+                <Link href="/security">Security</Link>
               </li>
             </ul>
           </div>

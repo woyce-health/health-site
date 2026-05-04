@@ -1,3 +1,5 @@
+import { Link } from '@/libs/I18nNavigation';
+
 export function CtaSection() {
   return (
     <section className="cta-section">
@@ -14,9 +16,9 @@ export function CtaSection() {
             Join the early waitlist. We&apos;re onboarding new families every week, starting with
             Mumbai, Bengaluru, and Pune.
           </p>
-          <a href="#" className="btn btn-primary">
+          <Link href="/patients" className="btn btn-primary">
             Join the waitlist →
-          </a>
+          </Link>
           <div className="cta-trust">
             <span>No credit card</span>
             <span className="cta-trust-dot" />
