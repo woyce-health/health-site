@@ -3,6 +3,7 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { DemoBadge } from '@/components/DemoBadge';
+import { LocaleHtml } from '@/components/LocaleHtml';
 import { routing } from '@/libs/I18nRouting';
 import '@/styles/global.css';
 
@@ -53,14 +54,13 @@ export default async function RootLayout(props: {
   setRequestLocale(locale);
 
   return (
-    <html lang={locale}>
-      <body>
-        <NextIntlClientProvider>
-          {props.children}
+    <>
+      <LocaleHtml locale={locale} />
+      <NextIntlClientProvider>
+        {props.children}
 
-          <DemoBadge />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+        <DemoBadge />
+      </NextIntlClientProvider>
+    </>
   );
 }
