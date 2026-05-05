@@ -6,6 +6,17 @@ export function AarogyaInteractive() {
   useEffect(() => {
     const nav = document.querySelector('#nav');
 
+    // Announcement bar dismiss
+    const announceClose = document.querySelector('#announceClose');
+    const announceBar = document.querySelector('#announceBar');
+    if (announceClose && announceBar) {
+      announceClose.addEventListener('click', () => {
+        if (announceBar instanceof HTMLElement) {
+          announceBar.style.display = 'none';
+        }
+      });
+    }
+
     const handleScroll = () => {
       if (nav) {
         nav.classList.toggle('scrolled', window.scrollY > 8);

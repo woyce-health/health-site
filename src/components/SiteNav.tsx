@@ -3,6 +3,39 @@ import { Link } from '@/libs/I18nNavigation';
 export function SiteNav() {
   return (
     <>
+      <div className="announce-bar" id="announceBar">
+        <div className="announce-content container">
+          <span className="announce-tag">NEW</span>
+          <span className="announce-text">
+            Aarogya is now live in private beta across Mumbai, Bengaluru &amp; Pune.
+          </span>
+          <a href="/patients" className="announce-link">
+            Join the waitlist{' '}
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+          <button
+            className="announce-close"
+            id="announceClose"
+            type="button"
+            aria-label="Close announcement"
+          >
+            &times;
+          </button>
+        </div>
+      </div>
+
       <nav id="nav">
         <div className="nav-inner container">
           {/* Brand zone */}

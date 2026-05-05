@@ -1,20 +1,32 @@
+import { Link } from '@/libs/I18nNavigation';
+
 export function FeaturesSection() {
   return (
-    <section className="section" id="features">
+    <section className="section" id="patients">
       <div className="container">
         <div className="section-header reveal">
           <div>
             <div className="section-label">
-              <span className="section-label-num">01 /</span> What we do
+              <span className="section-label-num">01 /</span> For patients
             </div>
             <h2 className="section-title">
-              A quiet revolution in <em>everyday care.</em>
+              Care that <em>finally</em> understands you.
             </h2>
           </div>
           <p className="section-intro">
-            Five things existing apps get wrong — and how we get them right. Built around the
-            patient, the doctor, and the family that holds them together.
+            Built for the way India actually lives — across languages, families, and providers. No
+            app required. Speak naturally, get answers, stay healthy.
           </p>
+        </div>
+
+        <div className="audience-pills reveal">
+          <Link href="#patients" className="audience-pill active">
+            <span className="audience-pill-dot" />
+            For patients
+          </Link>
+          <Link href="#doctors" className="audience-pill">
+            For doctors
+          </Link>
         </div>
 
         <div className="feature-grid">
@@ -88,7 +100,19 @@ export function FeaturesSection() {
               No app to download. Book appointments, get prescriptions, ask follow-ups, and receive
               lab reports — all on the chat your family already uses.
             </p>
-            <div className="feature-tag">⌘ ZERO INSTALL</div>
+
+            <div className="mini-viz mini-whatsapp">
+              <div className="mini-bubble in">मुझे बुखार है</div>
+              <div className="mini-bubble out">Aapka temperature kya hai?</div>
+              <div className="mini-bubble in">101°F</div>
+            </div>
+
+            <div className="feature-stat">
+              <div className="feature-stat-num">
+                500<em>M+</em>
+              </div>
+              <div className="feature-stat-label">WhatsApp users in India</div>
+            </div>
           </div>
 
           {/* Family mode */}
@@ -117,6 +141,31 @@ export function FeaturesSection() {
               Manage care for parents, kids, and partners with proper permissions and shared
               dashboards. Built for joint families.
             </p>
+
+            <div className="mini-viz mini-family">
+              <div className="mini-family-row">
+                <div className="mini-fa">M</div>
+                <div className="mini-family-text">Mom</div>
+                <div className="mini-family-role">Full access</div>
+              </div>
+              <div className="mini-family-row">
+                <div className="mini-fa">D</div>
+                <div className="mini-family-text">Dad</div>
+                <div className="mini-family-role">Can book</div>
+              </div>
+              <div className="mini-family-row">
+                <div className="mini-fa">B</div>
+                <div className="mini-family-text">Brother</div>
+                <div className="mini-family-role">View only</div>
+              </div>
+            </div>
+
+            <div className="feature-stat">
+              <div className="feature-stat-num">
+                5<em>+</em>
+              </div>
+              <div className="feature-stat-label">Family members</div>
+            </div>
           </div>
 
           {/* Unified timeline */}
@@ -145,6 +194,26 @@ export function FeaturesSection() {
               Every doctor, every prescription, every lab. We pull it all together via ABDM and flag
               conflicts before they hurt you.
             </p>
+
+            <div className="mini-viz mini-timeline">
+              <div className="mini-tl-event">
+                <div className="mini-tl-date">15 MAR · APOLLO</div>
+                <div className="mini-tl-title">Cardiology · Atorvastatin</div>
+              </div>
+              <div className="mini-tl-event">
+                <div className="mini-tl-date">20 FEB · MAX</div>
+                <div className="mini-tl-title">Diabetes follow-up</div>
+              </div>
+              <div className="mini-tl-event">
+                <div className="mini-tl-date">5 JAN · LOCAL LAB</div>
+                <div className="mini-tl-title">CBC · All normal</div>
+              </div>
+            </div>
+
+            <div className="feature-stat">
+              <div className="feature-stat-num">ABDM</div>
+              <div className="feature-stat-label">Native integration</div>
+            </div>
           </div>
 
           {/* AI Second Opinion */}
@@ -171,6 +240,25 @@ export function FeaturesSection() {
               Upload a diagnosis. Get five thoughtful questions to ask your doctor — never a
               counter-diagnosis. Always doctor-verifiable.
             </p>
+
+            <div className="mini-viz mini-ai">
+              <div className="mini-ai-question">
+                &ldquo;Have you considered testing for vitamin D deficiency given my
+                symptoms?&rdquo;
+              </div>
+              <div className="mini-ai-conf">
+                <span className="mini-ai-conf-label">Confidence</span>
+                <div className="mini-ai-conf-bar">
+                  <div className="mini-ai-conf-fill" />
+                </div>
+                <span className="mini-ai-conf-num">78%</span>
+              </div>
+            </div>
+
+            <div className="feature-stat">
+              <div className="feature-stat-num">5–7</div>
+              <div className="feature-stat-label">Smart questions</div>
+            </div>
           </div>
         </div>
       </div>
